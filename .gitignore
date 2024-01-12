@@ -34,3 +34,6 @@
 /.driftignore
 
 CHANGELOG.md
+
+states/*
+driftctl

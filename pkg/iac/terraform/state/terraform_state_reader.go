@@ -151,7 +151,7 @@ func (r *TerraformStateReader) retrieve() (map[string][]decodedRes, error) {
 						logrus.WithFields(logrus.Fields{
 							"name": resName,
 							"type": resType,
-						}).Error("Unable to decode resource from state")
+						}).Errorf("Unable to decode resource from state : %s", schema.Block.ImpliedType())
 						return nil, err
 					}
 				}
