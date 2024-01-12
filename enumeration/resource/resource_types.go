@@ -176,6 +176,7 @@ var supportedTypes = map[string]ResourceTypeMeta{
 	"aws_elb":                               {},
 	"aws_elasticache_cluster":               {},
 	"aws_cloudtrail":                        {},
+	"aws_secretsmanager_secret":             {},
 
 	"github_branch_protection": {},
 	"github_membership":        {},

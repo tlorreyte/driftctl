@@ -44,6 +44,7 @@ func Init(version string, alerter alerter.AlerterInterface, providerLibrary *ter
 	snsRepository := repository.NewSNSRepository(provider.session, repositoryCache)
 	cloudfrontRepository := repository.NewCloudfrontRepository(provider.session, repositoryCache)
 	dynamoDBRepository := repository.NewDynamoDBRepository(provider.session, repositoryCache)
+	smRepository := repository.NewSMRepository(provider.session, repositoryCache)
 	ecrRepository := repository.NewECRRepository(provider.session, repositoryCache)
 	kmsRepository := repository.NewKMSRepository(provider.session, repositoryCache)
 	iamRepository := repository.NewIAMRepository(provider.session, repositoryCache)
@@ -113,6 +114,7 @@ func Init(version string, alerter alerter.AlerterInterface, providerLibrary *ter
 	remoteLibrary.AddEnumerator(NewSNSTopicSubscriptionEnumerator(snsRepository, factory, alerter))
 
 	remoteLibrary.AddEnumerator(NewDynamoDBTableEnumerator(dynamoDBRepository, factory))
+	remoteLibrary.AddEnumerator(NewSMSecretEnumerator(smRepository, factory))
 
 	remoteLibrary.AddEnumerator(NewIamPolicyEnumerator(iamRepository, factory))
 
